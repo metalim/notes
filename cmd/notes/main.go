@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"notes/embedded"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -15,8 +17,8 @@ const (
 func main() {
 	r := mux.NewRouter()
 
-	r.PathPrefix("/static/").
-		Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	r.Handle("/", http.FileServer(http.FS(embedded.FS)))
+	r.HandleFunc("/ws", wsHandler)
 
 	srv := &http.Server{
 		Handler:      r,
@@ -26,4 +28,9 @@ func main() {
 	}
 	log.Println("Listening on", ADDR)
 	log.Fatal(srv.ListenAndServe())
+}
+
+func wsHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello, world!")
+
 }
