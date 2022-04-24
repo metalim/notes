@@ -1,1 +1,28 @@
-<h1>embedded hello</h1>
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Notes</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://cdn.tiny.cloud/1/ugjfi4kf1y3vap26rr46fzjcp1t47ew9yvi8gl1j6i7p9e6i/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
+</head>
+
+<body>
+  <textarea>
+    <h1>Note here</h1>
+ </textarea>
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+  </script>
+</body>
+
+</html>

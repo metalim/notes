@@ -17,8 +17,8 @@ const (
 func main() {
 	r := mux.NewRouter()
 
-	r.Handle("/", http.FileServer(http.FS(embedded.FS)))
 	r.HandleFunc("/ws", wsHandler)
+	r.PathPrefix("/").Handler(http.FileServer(http.FS(embedded.FS)))
 
 	srv := &http.Server{
 		Handler:      r,
