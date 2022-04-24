@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/cortesi/modd v0.0.0-20211215124449-6083f9d1c171
 	github.com/gorilla/mux v1.8.0
+	github.com/gorilla/websocket v1.5.0
 )
 
 require (
